@@ -61,11 +61,17 @@ const advisorOutcomes = [
   },
 ];
 
+const advisorImpact = [
+  "Organizations stabilized at the point of breakdown.",
+  "Decisions navigated that could not be discussed anywhere else.",
+  "Patterns broken that had repeated for years at increasing cost.",
+];
+
 const fitFor = [
   "Carry significant responsibility for complex organizations and the people inside them.",
-  "Value honest feedback over comfortable validation and can act on what they hear.",
+  "Value honest feedback over comfortable validation, and can act on what they hear.",
   "Are willing to confront difficult truths about their own leadership, not just their organization's performance.",
-  "Understand that the ceiling they keep hitting is unlikely to move until the thing producing it is named.",
+  "Understand that the ceiling they keep hitting is unlikely to move until the thing producing it is named and addressed.",
   "Want a Senior Advisor who will tell them what no one inside their organization is positioned to say.",
   "Are prepared to invest in the depth of counsel their mission actually requires.",
 ];
@@ -73,10 +79,17 @@ const fitFor = [
 const fitAgainst = [
   "Are in the early stages of building and need foundational business direction.",
   "Want validation for decisions they have already made.",
-  "Are looking for a consultant to produce a report they can file and reference occasionally.",
+  "Are looking for a consultant to produce a report that they can file and reference occasionally.",
   "Are unwilling to examine what is actually happening at the leadership level.",
   "Expect the advisor to work around the truth rather than through it.",
   "Want motivation rather than honest, rigorous, multi-dimensional counsel.",
+];
+
+const worksheetPrompts = [
+  "Where, in the last twelve months, did I make a decision that I now suspect would have been different with honest, outside counsel in the room?",
+  "Who in my current orbit can tell me the truth without something at stake in the answer — and if no one, what is that costing me?",
+  "What is the pattern I keep returning to that my leadership team has stopped naming, and what would it take to address it at the root?",
+  "If I were advising a peer in my exact situation, what would I tell them they are avoiding?",
 ];
 
 export default function Home() {
@@ -98,10 +111,10 @@ export default function Home() {
             />
             <FadeUp delay={0.4}>
               <p className="text-lg md:text-2xl text-crane-on-surface-variant max-w-3xl mb-12 leading-relaxed font-light">
-                Crane Consulting Solutions provides Senior Advisor services to a
-                small number of high-level leaders responsible for complex
+                Crane Consulting Solutions provides Senior Advisory services to
+                a small number of high-level leaders responsible for complex
                 organizations, high-stakes decisions, and the people depending
-                on both. This is not consulting. This is the honest inner
+                on both. This is not consulting; this is the honest inner
                 counsel your organization has been missing.
               </p>
             </FadeUp>
@@ -130,7 +143,7 @@ export default function Home() {
         </FadeIn>
       </header>
 
-      {/* Trust Signals + Disciplines */}
+      {/* Trust Signals + Disciplines + Stats */}
       <section className="bg-crane-surface-low border-y border-crane-outline-variant/40 py-14 md:py-16">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <FadeIn>
@@ -149,17 +162,27 @@ export default function Home() {
           </Stagger>
           <RevealLine className="w-24 mb-10" color="bg-crane-peach" />
           <FadeUp>
-            <p className="text-base md:text-lg text-crane-on-surface-variant font-light max-w-4xl leading-relaxed">
+            <p className="text-base md:text-lg text-crane-on-surface-variant font-light max-w-4xl leading-relaxed mb-12">
               <span className="text-crane-blue font-medium">
                 {disciplines.join(". ")}.
               </span>{" "}
-              All in one advisor.
+              All-in-one advisor.
             </p>
+          </FadeUp>
+          <FadeUp delay={0.1}>
+            <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-6">
+              <span className="font-serif text-4xl md:text-5xl text-crane-blue leading-none">
+                ##+ Leaders Served.
+              </span>
+              <span className="text-sm md:text-base uppercase tracking-[0.25em] text-crane-on-surface-variant font-medium">
+                A small number of engagements accepted each year.
+              </span>
+            </div>
           </FadeUp>
         </div>
       </section>
 
-      {/* Statement Section */}
+      {/* Statement Section — The Problem of the Top */}
       <section className="bg-crane-peach-lightest py-24 md:py-32">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="max-w-4xl">
@@ -169,9 +192,9 @@ export default function Home() {
               </span>
             </FadeIn>
             <FadeUp>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl text-crane-blue leading-tight font-serif italic mb-10">
-                &ldquo;Every leader reaches the point where the people around
-                them can no longer tell them the truth.&rdquo;
+              <h2 className="text-3xl md:text-5xl lg:text-6xl text-crane-blue leading-tight font-serif mb-10">
+                Every Leader Reaches the Point Where the People Around Them Can
+                No Longer Tell Them the Truth.
               </h2>
             </FadeUp>
             <RevealLine className="w-24 mb-12" color="bg-crane-peach" />
@@ -204,77 +227,60 @@ export default function Home() {
                 </p>
               </StaggerItem>
             </Stagger>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section / The Senior Advisor */}
-      <section id="about" className="py-28 md:py-40 bg-crane-surface">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
-          <SlideIn from="left" className="md:col-span-5">
-            <div className="h-[400px] md:h-[600px] bg-crane-blue relative overflow-hidden">
-              <Image
-                src="/images/advisor-portrait.jpg"
-                alt="Dr. Steven Crane"
-                fill
-                className="object-cover grayscale brightness-75 contrast-125"
-              />
-              <div className="absolute inset-0 bg-crane-blue/20" />
-            </div>
-          </SlideIn>
-          <div className="md:col-span-7 md:pl-6 lg:pl-12">
-            <FadeIn>
-              <span className="block text-xs uppercase tracking-[0.3em] text-crane-light-blue mb-6 font-bold">
-                The Senior Advisor Behind the Organization
-              </span>
-            </FadeIn>
-            <FadeUp delay={0.1}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl text-crane-blue leading-tight mb-10 font-serif">
-                A Role That Has Existed Throughout History. The Question Is Why
-                You Have Been Operating Without It.
-              </h2>
+            <FadeUp delay={0.2}>
+              <Link
+                href="/contact"
+                className="mt-14 inline-block bg-crane-blue text-white px-10 py-6 text-sm font-bold tracking-widest uppercase hover:bg-crane-light-blue transition-all duration-300"
+              >
+                Schedule Your Strategic Clarity Session
+              </Link>
             </FadeUp>
-            <Stagger className="space-y-8 text-crane-on-surface-variant font-light text-lg max-w-2xl">
-              <StaggerItem>
-                <p>
-                  Kings had philosophers. Generals had senior enlisted advisors.
-                  Presidents had chiefs of staff. The most effective leaders in
-                  history did not operate alone. They built trusted inner
-                  counsel and used it to make better decisions, navigate
-                  greater complexity, and build organizations that outlasted
-                  them.
-                </p>
-              </StaggerItem>
-              <StaggerItem>
-                <p>
-                  Dr. Steven Crane brings an integration of experience that few
-                  advisors can match: military leadership, business consulting,
-                  executive advisory, financial strategy, organizational
-                  change, legal education, and leadership psychology. Held
-                  simultaneously by one advisor with the depth and discipline
-                  to address root causes rather than surface symptoms.
-                </p>
-              </StaggerItem>
-              <StaggerItem>
-                <Link
-                  href="/about"
-                  className="inline-block text-sm uppercase tracking-widest font-bold text-crane-blue border-b-2 border-crane-peach pb-1 hover:text-crane-light-blue transition-colors"
-                >
-                  Meet Dr. Crane
-                </Link>
-              </StaggerItem>
-            </Stagger>
           </div>
         </div>
       </section>
 
-      {/* GSAP Scroll-Pinned Section */}
-      <section id="services">
-        <ScrollSection />
+      {/* The Danger of the Top — exposition */}
+      <section className="bg-crane-surface py-24 md:py-32">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
+          <FadeUp className="md:col-span-5">
+            <span className="block text-xs uppercase tracking-[0.3em] text-crane-light-blue mb-6 font-bold">
+              The Danger of the Top
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-crane-blue leading-tight font-serif">
+              Most Leaders Do Not Realize How Dangerous the Top Actually Is.
+            </h2>
+          </FadeUp>
+          <Stagger className="md:col-span-7 space-y-8 text-lg md:text-xl text-crane-on-surface-variant leading-relaxed font-light">
+            <StaggerItem>
+              <p>
+                Research on executive failure consistently points to the same
+                root causes: decisions made under emotional pressure without
+                adequate perspective, blind spots that went unchallenged for
+                too long, and leadership teams that had learned to execute
+                without dissent rather than challenge without politics.
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <p>
+                The higher the stakes, the more expensive the blind spot. The
+                more successful the leader, the harder it becomes for anyone
+                around them to say what needs to be said.
+              </p>
+            </StaggerItem>
+            <StaggerItem>
+              <p>
+                Most leaders do not lose their organizations in a single
+                catastrophic moment. They lose them in a hundred small
+                decisions made without honest counsel, each one slightly off
+                course, until the drift becomes a direction nobody chooses.
+              </p>
+            </StaggerItem>
+          </Stagger>
+        </div>
       </section>
 
       {/* What Changes - Advisor Outcomes */}
-      <section className="py-28 md:py-40 bg-crane-surface">
+      <section className="py-28 md:py-40 bg-crane-surface-low">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl mb-20 md:mb-24">
             <FadeIn>
@@ -309,10 +315,154 @@ export default function Home() {
               </StaggerItem>
             ))}
           </Stagger>
+          <FadeUp delay={0.15}>
+            <div className="mt-20 md:mt-24 flex justify-center">
+              <Link
+                href="/contact"
+                className="inline-block bg-crane-blue text-white px-10 py-6 text-sm font-bold tracking-widest uppercase hover:bg-crane-light-blue transition-all duration-300"
+              >
+                Schedule Your Strategic Clarity Session
+              </Link>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
-      {/* Consulting Industry Critique */}
+      {/* About Section / The Senior Advisor */}
+      <section id="about" className="py-28 md:py-40 bg-crane-surface">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <SlideIn from="left" className="md:col-span-5">
+            <div className="h-[400px] md:h-[600px] bg-crane-blue relative overflow-hidden">
+              <Image
+                src="/images/advisor-portrait.jpg"
+                alt="Dr. Steven Crane"
+                fill
+                className="object-cover grayscale brightness-75 contrast-125"
+              />
+              <div className="absolute inset-0 bg-crane-blue/20" />
+            </div>
+          </SlideIn>
+          <div className="md:col-span-7 md:pl-6 lg:pl-12">
+            <FadeIn>
+              <span className="block text-xs uppercase tracking-[0.3em] text-crane-light-blue mb-6 font-bold">
+                The Senior Advisor Behind the Organization
+              </span>
+            </FadeIn>
+            <FadeUp delay={0.05}>
+              <p className="text-sm md:text-base uppercase tracking-[0.25em] text-crane-on-surface-variant font-medium mb-6">
+                A Role That Has Existed Throughout History.
+              </p>
+            </FadeUp>
+            <FadeUp delay={0.1}>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-crane-blue leading-tight mb-10 font-serif">
+                Senior Advisors Have Existed Throughout History. The Question
+                Is Why You Have Been Operating Without It.
+              </h2>
+            </FadeUp>
+            <Stagger className="space-y-8 text-crane-on-surface-variant font-light text-lg max-w-2xl">
+              <StaggerItem>
+                <p>
+                  Kings had philosophers. Generals had senior enlisted advisors.
+                  Presidents had chiefs of staff. The most effective leaders in
+                  history did not operate alone. They built trusted inner
+                  counsel and used it to make better decisions, navigate
+                  greater complexity, and build organizations that outlasted
+                  them.
+                </p>
+              </StaggerItem>
+              <StaggerItem>
+                <p>
+                  Dr. Steven Crane brings an integration of experience that few
+                  advisors can match: military leadership, business consulting,
+                  executive advisory, financial strategy, organizational
+                  change, legal education, and leadership psychology. This is
+                  not a single lane. This is the full complexity of what
+                  leaders at your level are actually dealing with, held
+                  simultaneously by one advisor with the depth and discipline
+                  to address root causes rather than surface symptoms.
+                </p>
+              </StaggerItem>
+              <StaggerItem>
+                <Link
+                  href="/about"
+                  className="inline-block text-sm uppercase tracking-widest font-bold text-crane-blue border-b-2 border-crane-peach pb-1 hover:text-crane-light-blue transition-colors"
+                >
+                  Meet Dr. Crane
+                </Link>
+              </StaggerItem>
+            </Stagger>
+          </div>
+        </div>
+
+        {/* Stats / Impact strip */}
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 mt-24 md:mt-32">
+          <RevealLine className="w-24 mb-12" color="bg-crane-peach" />
+          <FadeUp>
+            <p className="font-serif text-3xl md:text-4xl text-crane-blue leading-tight max-w-4xl">
+              <span className="text-crane-light-blue">#+ leaders served.</span>{" "}
+              {advisorImpact.join(" ")}
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <p className="mt-10 text-lg md:text-xl text-crane-on-surface-variant font-light italic">
+              This is what the Senior Advisor relationship produces. Clarity.
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 md:py-32 bg-crane-peach-lightest">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+          <div className="max-w-3xl mb-16">
+            <FadeIn>
+              <span className="block text-xs uppercase tracking-[0.3em] text-crane-light-blue mb-6 font-bold">
+                What Leaders Say
+              </span>
+            </FadeIn>
+            <FadeUp>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-crane-blue leading-tight font-serif">
+                The Conversations That Could Not Happen Anywhere Else.
+              </h2>
+            </FadeUp>
+          </div>
+          <Stagger
+            wide
+            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-crane-outline-variant/30"
+          >
+            {[1, 2, 3].map((i) => (
+              <StaggerItem
+                key={i}
+                className="bg-crane-surface p-10 md:p-12 flex flex-col gap-8 min-h-[320px]"
+              >
+                <span className="font-serif text-6xl text-crane-peach leading-none">
+                  &ldquo;
+                </span>
+                <p className="font-serif text-lg md:text-xl text-crane-blue leading-snug">
+                  Client testimonial placeholder. Specific result, in the
+                  client&rsquo;s own words, tied to the context that produced
+                  it.
+                </p>
+                <div className="mt-auto pt-6 border-t border-crane-outline-variant/40">
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-crane-blue">
+                    Full Name
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-crane-on-surface-variant mt-2">
+                    Title, Organization
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </div>
+      </section>
+
+      {/* GSAP Scroll-Pinned Section */}
+      <section id="services">
+        <ScrollSection />
+      </section>
+
+      {/* Why Other Solutions Fall Short */}
       <section className="py-28 md:py-36 bg-crane-surface-low">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <FadeUp className="md:col-span-5">
@@ -320,7 +470,8 @@ export default function Home() {
               Why Other Solutions Fall Short
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-crane-blue leading-tight font-serif">
-              What the Consulting Industry Will Not Tell You.
+              What the Consulting Industry Will Not Tell You About Why Their
+              Solutions Keep Falling Short.
             </h2>
           </FadeUp>
           <Stagger className="md:col-span-7 space-y-10">
@@ -343,8 +494,11 @@ export default function Home() {
                 </h3>
                 <p className="text-crane-on-surface-variant font-light leading-relaxed">
                   They address the individual&rsquo;s psychology and behavior.
-                  Your problems do not stay inside a single lane. Your advisor
-                  should not either.
+                  That work has value in its place. It does not engage
+                  simultaneously with your strategy, your organizational
+                  structure, your financial decision-making, your governance
+                  exposure, and your team dynamics. Your problems do not stay
+                  inside a single lane. Your advisor should not either.
                 </p>
               </div>
             </StaggerItem>
@@ -354,9 +508,20 @@ export default function Home() {
                   Peer groups give you community.
                 </h3>
                 <p className="text-crane-on-surface-variant font-light leading-relaxed">
-                  They do not give you honest, direct, sustained counsel from
-                  someone with no stake in how you see them. Peers have their
-                  own agendas. A Senior Advisor has only one.
+                  They give you the comfort of knowing other leaders are
+                  dealing with similar complexity. They do not give you honest,
+                  direct, sustained counsel from someone with no stake in how
+                  you see them. Peers have their own agendas. A Senior Advisor
+                  has only one.
+                </p>
+              </div>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="border-l-2 border-crane-blue pl-8 pt-4">
+                <p className="text-crane-blue font-serif italic text-lg md:text-xl leading-relaxed">
+                  What CCS provides is structurally different from all of it
+                  because it is built around what leaders at your level
+                  actually need and almost never have.
                 </p>
               </div>
             </StaggerItem>
@@ -378,10 +543,9 @@ export default function Home() {
                 Crane Consulting Solutions Is Not for Every Leader.
               </h2>
             </FadeUp>
-            <FadeUp delay={0.2}>
-              <p className="mt-8 text-lg text-crane-on-surface-variant font-light max-w-2xl leading-relaxed">
-                It is designed for a specific kind of leader. Engagements are
-                limited and accepted only when fit is clear on both sides.
+            <FadeUp delay={0.15}>
+              <p className="mt-8 text-lg md:text-xl text-crane-on-surface-variant font-light max-w-2xl leading-relaxed">
+                It is designed for a specific kind.
               </p>
             </FadeUp>
           </div>
@@ -423,6 +587,62 @@ export default function Home() {
               </ul>
             </SlideIn>
           </div>
+          <FadeUp delay={0.2}>
+            <p className="mt-16 max-w-3xl text-lg md:text-xl text-crane-on-surface-variant font-light leading-relaxed">
+              Engagements are limited. Dr. Crane works with a small number of
+              leaders at any given time to ensure the depth of support each
+              engagement requires. When those engagements are filled, the next
+              availability opens only when a current engagement concludes.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.3}>
+            <div className="mt-12 flex flex-col items-start gap-6">
+              <Link
+                href="/contact"
+                className="inline-block bg-crane-blue text-white px-10 py-6 text-sm font-bold tracking-widest uppercase hover:bg-crane-light-blue transition-all duration-300"
+              >
+                Schedule Your Strategic Clarity Session
+              </Link>
+              <p className="text-sm md:text-base text-crane-on-surface-variant font-light italic max-w-2xl">
+                Current availability is limited. If you are ready to have the
+                honest conversation your organization needs, this is where it
+                starts.
+              </p>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Free Value Section — Worksheet */}
+      <section className="py-24 md:py-32 bg-crane-peach-lightest">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
+          <FadeUp className="md:col-span-5">
+            <span className="block text-xs uppercase tracking-[0.3em] text-crane-light-blue mb-6 font-bold">
+              A Worksheet, Before You Decide
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-crane-blue leading-tight font-serif mb-8">
+              Four Questions to Sit With Before Booking the Conversation.
+            </h2>
+            <p className="text-lg text-crane-on-surface-variant font-light leading-relaxed">
+              Think through these questions from these perspectives before
+              making a decision. The clarity you find here is the clarity the
+              engagement will build on.
+            </p>
+          </FadeUp>
+          <Stagger className="md:col-span-7 space-y-6">
+            {worksheetPrompts.map((prompt, i) => (
+              <StaggerItem key={i}>
+                <div className="bg-crane-surface p-8 md:p-10 flex gap-6">
+                  <span className="font-serif text-3xl md:text-4xl text-crane-peach leading-none mt-1">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-crane-blue font-serif text-lg md:text-xl leading-snug">
+                    {prompt}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
       </section>
 
@@ -448,14 +668,19 @@ export default function Home() {
             </h2>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <p className="text-lg md:text-xl text-crane-on-primary-container font-light max-w-2xl mx-auto mb-16 leading-relaxed">
+            <p className="text-lg md:text-xl text-crane-on-primary-container font-light max-w-2xl mx-auto mb-8 leading-relaxed">
               You are carrying weight that deserves more than isolation and
               generic solutions. The leaders who build organizations that last
               are the ones who understood early that no amount of intelligence
               compensates for the absence of honest counsel.
             </p>
           </FadeUp>
-          <FadeUp delay={0.3}>
+          <FadeUp delay={0.25}>
+            <p className="text-base md:text-lg text-crane-peach font-serif italic max-w-2xl mx-auto mb-16">
+              That conversation starts here.
+            </p>
+          </FadeUp>
+          <FadeUp delay={0.35}>
             <Link
               href="/contact"
               className="inline-block bg-crane-peach text-crane-blue px-12 py-7 text-sm font-bold tracking-widest uppercase hover:brightness-110 transition-all active:scale-[0.98]"
@@ -464,8 +689,16 @@ export default function Home() {
             </Link>
           </FadeUp>
           <FadeIn delay={0.5}>
-            <p className="mt-10 text-xs uppercase tracking-[0.25em] text-crane-on-primary-container/80">
-              A small number of sessions are available
+            <p className="mt-10 text-sm md:text-base text-crane-on-primary-container/80 font-light max-w-xl mx-auto leading-relaxed">
+              A small number of sessions are available. Leaders who are ready
+              to have an honest conversation are the ones who should book them.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.65}>
+            <p className="mt-16 text-xs uppercase tracking-[0.25em] text-crane-on-primary-container/60 max-w-2xl mx-auto leading-relaxed">
+              Crane Consulting Solutions. Elite executive advisory for leaders
+              responsible for complex organizations, high-stakes decisions, and
+              the people who depend on both.
             </p>
           </FadeIn>
         </div>
