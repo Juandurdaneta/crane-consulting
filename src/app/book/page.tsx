@@ -77,25 +77,19 @@ export default function Book() {
             </FadeUp>
           </div>
 
-          {/* Book mock */}
+          {/* Book cover */}
           <ScaleIn className="md:col-span-5">
-            <div className="relative aspect-[3/4] max-w-sm mx-auto">
+            <div className="relative aspect-[2/3] max-w-sm mx-auto">
               <div className="absolute inset-0 bg-crane-blue rotate-1 shadow-2xl" />
-              <div className="absolute inset-0 -rotate-1 bg-gradient-to-br from-crane-blue via-crane-primary-container to-crane-blue p-10 md:p-12 flex flex-col justify-between text-white shadow-2xl">
-                <div>
-                  <span className="block text-xs uppercase tracking-[0.3em] text-crane-peach mb-6 font-bold">
-                    Dr. Steven Crane
-                  </span>
-                  <h2 className="font-serif text-3xl md:text-4xl leading-tight">
-                    Who&rsquo;s Got Your Six?
-                  </h2>
-                </div>
-                <div>
-                  <RevealLine className="w-16 mb-4" color="bg-crane-peach" />
-                  <p className="font-serif italic text-crane-peach text-sm">
-                    The Senior Advisor Behind the Leader
-                  </p>
-                </div>
+              <div className="absolute inset-0 -rotate-1 overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/book-cover.png"
+                  alt="Who's Got Your Six? by Dr. Steven Crane"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(min-width: 768px) 24rem, 24rem"
+                />
               </div>
             </div>
           </ScaleIn>
