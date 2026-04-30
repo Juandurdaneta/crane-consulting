@@ -172,7 +172,7 @@ export default function Home() {
           <FadeUp delay={0.1}>
             <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-6">
               <span className="font-serif text-4xl md:text-5xl text-crane-blue leading-none">
-                ##+ Leaders Served.
+                500+ Leaders Served.
               </span>
               <span className="text-sm md:text-base uppercase tracking-[0.25em] text-crane-on-surface-variant font-medium">
                 A small number of engagements accepted each year.
